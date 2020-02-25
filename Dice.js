@@ -7,7 +7,7 @@ const Dice = (() => {
    * @param {number} min
    * @returns {number}
    */
-   const getANumberBetweenMinAndMax = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+  const getANumberBetweenMinAndMax = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 
   /**
    * Rolls a die with a min = 1 and max limit and returns the result
@@ -18,12 +18,37 @@ const Dice = (() => {
 
   /**
    * Rolls a die of the same dimentions as many times as the second argument (default: 1)
-   * Eg. Dice.roll(20, 5) will return the result of rolling a 5 * d20 ( 5 times 20 dimentional dice)
+   * Eg. Dice.roll(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimentional dice)
    * @param {number} sides the numbers of the dice's dimentions (sides)
    * @param {number} times the number of times to roll the die
    * @returns {number} the result of the dice
    */
-  const rollD = (sides, times = 1) => Array(times).fill(null).reduce(result => result + rollDieWithMin1(sides), 0);
+  const rollDTimes = (sides, times = 1) => Array(times).fill(null).reduce(result => result + rollDieWithMin1(sides), 0);
+
+  /**
+   * There are three ways to use this function to roll from one single die, or a mixed set of them
+   * @param  {number[]} args Example 1: Dice.roll(20) will return the result of rolling a d20 ( a 20 dimentional dice)
+   * @param  {number[]} args Example 2: Dice.roll(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimentional dice)
+   * @param  {Object}   args Example 3: Dice.roll({20: 5, 12: 3, 10: 2}) will return the result of rolling 5 * d20 + 3 * d12 + 2 * d10
+   * @returns {number} the result of the dice
+   */
+  const rollD = (...args) => {
+    if (!args || !args.length) return 0;
+    if (args.length === 1 && typeof args[0] === 'object') {
+      const [rolls] = args;
+      return Object.keys(rolls)
+                .reduce(
+                    (accumulatedRolls, currentRoll) => accumulatedRolls + rollDTimes(currentRoll, rolls[currentRoll]), 0);
+    }
+
+    if (args.length <= 2 && typeof args[0] === 'number') {
+      let [sides, times] = args;
+      times = typeof times === 'number' ? times : 1;
+      return rollDTimes(sides, times);
+    }
+
+    return 0;
+  }
 
   return {
     rollD,
