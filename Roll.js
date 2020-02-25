@@ -1,6 +1,6 @@
 'use strict';
 
-const Dice = (() => {
+const Roll = (() => {
   /**
    * Returns a number between a min value (inclusive) and a max value (inclusive)
    * @param {number} max
@@ -17,8 +17,8 @@ const Dice = (() => {
   const rollDieWithMin1 = (max) => getANumberBetweenMinAndMax(1, max);
 
   /**
-   * Rolls a die of the same dimentions as many times as the second argument (default: 1)
-   * Eg. Dice.roll(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimentional dice)
+   * Rolls a die of the same dimentions as many times as the second argument (times) (default: 1)
+   * Eg. rollDTimes(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimentional dice)
    * @param {number} sides the numbers of the dice's dimentions (sides)
    * @param {number} times the number of times to roll the die
    * @returns {number} the result of the dice
@@ -27,18 +27,18 @@ const Dice = (() => {
 
   /**
    * There are three ways to use this function to roll from one single die, or a mixed set of them
-   * @param  {number[]} args Example 1: Dice.roll(20) will return the result of rolling a d20 ( a 20 dimentional dice)
-   * @param  {number[]} args Example 2: Dice.roll(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimentional dice)
-   * @param  {Object}   args Example 3: Dice.roll({20: 5, 12: 3, 10: 2}) will return the result of rolling 5 * d20 + 3 * d12 + 2 * d10
-   * @returns {number} the result of the dice
+   * @param  {number[]} args Example 1: Roll.D(20) will return the result of rolling a d20 ( a 20 dimentional dice)
+   * @param  {number[]} args Example 2: Roll.D(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimentional dice)
+   * @param  {Object}   args Example 3: Roll.D({20: 5, 12: 3, 10: 2}) will return the result of rolling 5 * d20 + 3 * d12 + 2 * d10
+   * @returns {number} the accumulated result of the dice roll or returns 0 in case of incorrect input
    */
-  const rollD = (...args) => {
+  const D = (...args) => {
     if (!args || !args.length) return 0;
     if (args.length === 1 && typeof args[0] === 'object') {
       const [rolls] = args;
       return Object.keys(rolls)
                 .reduce(
-                    (accumulatedRolls, currentRoll) => accumulatedRolls + rollDTimes(currentRoll, rolls[currentRoll]), 0);
+                    (accumulatedRolls, currentRollKey) => accumulatedRolls + rollDTimes(currentRollKey, rolls[currentRollKey]), 0);
     }
 
     if (args.length <= 2 && typeof args[0] === 'number') {
@@ -51,8 +51,8 @@ const Dice = (() => {
   }
 
   return {
-    rollD,
+    D,
   };
 })();
 
-exports.default = Dice;
+exports.default = Roll;
