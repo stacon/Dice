@@ -1,0 +1,26 @@
+{
+  "name": "roll",
+  "version": "0.5.0",
+  "description": "A functions than can emulate the roll of dice with custom dimensions",
+  "main": "Roll.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacon/Roll.git"
+  },
+  "keywords": [
+    "roll",
+    "dice",
+    "die",
+    "dnd",
+    "d20"
+  ],
+  "author": "Constantinos Stathis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stacon/Roll/issues"
+  },
+  "homepage": "https://github.com/stacon/Roll#readme"
+}
