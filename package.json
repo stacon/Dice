@@ -4,7 +4,7 @@
   "description": "A functions than can emulate the roll of dice with custom dimensions",
   "main": "Roll.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/stacon/Roll/issues"
   },
-  "homepage": "https://github.com/stacon/Roll#readme"
+  "homepage": "https://github.com/stacon/Roll#readme",
+  "devDependencies": {
+    "mocha": "^7.1.0"
+  }
 }

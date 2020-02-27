@@ -1,6 +1,6 @@
 'use strict';
 
-const Roll = (() => {
+module.exports = (() => {
   /**
    * Returns a number between a min value (inclusive) and a max value (inclusive)
    * @param   {number} max
@@ -54,7 +54,3 @@ const Roll = (() => {
     D,
   };
 })();
-
-console.log(Roll.D({20: 4}));
-
-exports.default = Roll;
