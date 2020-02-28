@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/stacon/Roll#readme",
   "devDependencies": {
+    "expect": "^25.1.0",
     "mocha": "^7.1.0"
   }
 }

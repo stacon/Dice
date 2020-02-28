@@ -33,8 +33,13 @@ module.exports = (() => {
    * @returns {number}   the accumulated result of the dice roll or 0 in case of incorrect input
    */
   const D = (...args) => {
-    if (!args || !args.length) return 0;
-    if (args.length === 1 && typeof args[0] === 'object') {
+    if (args.length < 1) return 0;
+    if (
+      args.length === 1 &&
+      !!args[0] &&
+      typeof args[0] === 'object' &&
+      !Array.isArray(args[0])
+    ) {
       const [rolls] = args;
       return Object.entries(rolls)
                 .reduce(
