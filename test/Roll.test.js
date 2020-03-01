@@ -1,5 +1,8 @@
-const Roll = require('../Roll');
+// Test tools
 const expect = require('expect');
+
+// Testees
+const Roll = require('../Roll');
 
 describe('Single die roll with signature, ', () => {
   it('using a single number parameter', () => {

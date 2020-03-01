@@ -1,14 +1,8 @@
 'use strict';
 
-module.exports = (() => {
-  /**
-   * Returns a number between a min value (inclusive) and a max value (inclusive)
-   * @param   {number} max
-   * @param   {number} min
-   * @returns {number}
-   */
-  const getANumberBetweenMinAndMax = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+const getANumberBetweenMinAndMax = require('./libs/getNumberBetweenMinAndMax');
 
+module.exports = (() => {
   /**
    * Emulates the roll of a single die with customer number of dimensions
    * @param   {number} dimensions the maximum allowed roll number (die dimensions)
