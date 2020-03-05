@@ -2,7 +2,7 @@
 
 const getANumberBetweenMinAndMax = require('./libs/getNumberBetweenMinAndMax');
 
-module.exports = (() => {
+exports.default = (() => {
   /**
    * Emulates the roll of a single die with customer number of dimensions
    * @param   {number} dimensions the maximum allowed roll number (die dimensions)

@@ -2,9 +2,9 @@
 const expect = require('expect');
 
 // Testees
-const Roll = require('../Roll');
+const Roll = require('./roll').default;
 
-describe('Single die roll with signature, ', () => {
+describe('Single die roll with signature ', () => {
   it('using a single number parameter', () => {
     const rollNumber = Roll.d(20);
     const validResult = rollNumber > 0 && rollNumber <= 20;
@@ -30,7 +30,7 @@ describe('Single die roll with signature, ', () => {
   });
 });
 
-describe('Multiple die roll with signature, ', () => { 
+describe('Multiple die roll with signature ', () => { 
   it('using two number parameters', () => {
     const rollNumber = Roll.d(20, 2);
     const validResult = rollNumber > 1 && rollNumber <= 40;

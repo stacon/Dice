@@ -4,7 +4,7 @@
   "description": "A functions than can emulate the roll of dice with custom dimensions",
   "main": "Roll.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha ./src --recursive"
   },
   "repository": {
     "type": "git",
