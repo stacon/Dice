@@ -1,5 +1,1 @@
-const Roll = require('./src/roll').default;
-
-module.exports = {
-    Roll,
-}
+exports.default = require('./src/roll').default;
