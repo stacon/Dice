@@ -21,12 +21,12 @@ module.exports = (() => {
 
   /**
    * There are three ways to use this function to roll from one single die, or a mixed set of them
-   * @param   {number[]} args Example 1: Roll.D(20) will return the result of rolling a d20 ( a 20 dimensional dice)
-   * @param   {number[]} args Example 2: Roll.D(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimensional dice)
-   * @param   {Object}   args Example 3: Roll.D({20: 5, 12: 3, 10: 2}) will return the result of rolling 5 * d20 + 3 * d12 + 2 * d10
+   * @param   {number[]} args Example 1: Roll.d(20) will return the result of rolling a d20 ( a 20 dimensional dice)
+   * @param   {number[]} args Example 2: Roll.d(20, 5) will return the result of rolling 5 * d20 ( 5 times 20 dimensional dice)
+   * @param   {Object}   args Example 3: Roll.d({20: 5, 12: 3, 10: 2}) will return the result of rolling 5 * d20 + 3 * d12 + 2 * d10
    * @returns {number}   the accumulated result of the dice roll or 0 in case of incorrect input
    */
-  const D = (...args) => {
+  const d = (...args) => {
     if (args.length < 1) return 0;
     if (
       args.length === 1 &&
@@ -50,6 +50,6 @@ module.exports = (() => {
   }
 
   return {
-    D,
+    d,
   };
 })();
