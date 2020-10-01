@@ -1,14 +1,12 @@
-'use strict';
+import { getNumberBetweenMinAndMax } from './libs/getNumberBetweenMinAndMax';
 
-const getANumberBetweenMinAndMax = require('./libs/getNumberBetweenMinAndMax');
-
-exports.default = (() => {
+export default (() => {
   /**
    * Emulates the roll of a single die with customer number of dimensions
    * @param   {number} dimensions the maximum allowed roll number (die dimensions)
    * @returns {number} the result of rolling the die
    */
-  const rollADie = (dimensions) => getANumberBetweenMinAndMax(1, dimensions);
+  const rollADie = (dimensions) => getNumberBetweenMinAndMax(1, dimensions);
 
   /**
    * Rolls a die of the same dimensions as many times as the second argument (times) (default: 1)
@@ -17,7 +15,10 @@ exports.default = (() => {
    * @param   {number} times the number of times to roll the die
    * @returns {number} the result of the dice
    */
-  const rollADieTimes = (dimensions, times = 1) => Array(times).fill(null).reduce(result => result + rollADie(dimensions), 0);
+  const rollADieTimes = (dimensions, times = 1) =>
+    Array(times)
+      .fill(null)
+      .reduce((result) => result + rollADie(dimensions), 0);
 
   /**
    * There are three ways to use this function to roll from one single die, or a mixed set of them
@@ -35,9 +36,11 @@ exports.default = (() => {
       !Array.isArray(args[0])
     ) {
       const [rolls] = args;
-      return Object.entries(rolls)
-                .reduce(
-                    (accumulatedRolls, [dimensions, times]) => accumulatedRolls + rollADieTimes(dimensions, times), 0);
+      return Object.entries(rolls).reduce(
+        (accumulatedRolls, [dimensions, times]) =>
+          accumulatedRolls + rollADieTimes(dimensions, times),
+        0
+      );
     }
 
     if (args.length <= 2 && typeof args[0] === 'number') {
@@ -47,7 +50,7 @@ exports.default = (() => {
     }
 
     return 0;
-  }
+  };
 
   return {
     d,
