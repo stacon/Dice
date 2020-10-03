@@ -66,5 +66,8 @@
       "js",
       "node"
     ]
+  },
+  "dependencies": {
+    "@stacon/xswitch": "^1.0.3"
   }
 }
