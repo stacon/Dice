@@ -1,7 +1,6 @@
-import { accumulatedResult } from './accumulatedResult';
-import { d } from './d';
+import roll from './roll';
+import d from './d';
+import sum from './sum';
 
-const Roll = { accumulatedResult, d };
-
-export { accumulatedResult, d };
-export default Roll;
+export { roll, d, sum };
+export default roll;

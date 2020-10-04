@@ -1,11 +1,4 @@
 import getNumberBetweenMinAndMax from './getNumberBetweenMinAndMax';
-import rollADie from './rollADie';
-import rollADieTimes from './rollADieTimes';
-import validateArgsOrUndefined from './validateArgsOrUndefined';
+import isArrayOfNumbers from './isArrayOfNumbers';
 
-export {
-  getNumberBetweenMinAndMax,
-  rollADie,
-  rollADieTimes,
-  validateArgsOrUndefined,
-};
+export { getNumberBetweenMinAndMax, isArrayOfNumbers };
