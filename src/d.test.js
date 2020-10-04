@@ -2,12 +2,13 @@ import { d } from './d';
 import * as utils from './utils';
 
 describe('d', () => {
-  const rollADieSpy = jest.spyOn(utils, 'rollADie').mockReturnValue(10);
+  const rollADieSpy = jest.spyOn(utils, 'rollADie');
+  console.log(rollADieSpy);
 
   afterEach(() => rollADieSpy.mockReset());
   afterAll(() => rollADieSpy.mockRestore());
 
-  it('using a single number parameter', () => {
+  it('should return obj with one entry, when using a single number parameter', () => {
     // WHEN
     const rollResult = d(20);
     const validResult = rollResult[0][20].length === 1;
@@ -17,7 +18,7 @@ describe('d', () => {
     expect(rollADieSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('using two number parameters', () => {
+  it('should return obj with one entry, when using two number parameters', () => {
     // WHEN
     const rollResult = d(20, 3);
     const validResult = rollResult[0][20].length === 3;
@@ -27,7 +28,7 @@ describe('d', () => {
     expect(rollADieSpy).toHaveBeenCalledTimes(3);
   });
 
-  it('using the object parameter with number key value', () => {
+  it('should return obj with one entry, when using the object parameter with number key value', () => {
     // WHEN
     const rollResult = d({ 20: 1 });
     const validResult = rollResult[0][20].length === 1;
@@ -37,7 +38,7 @@ describe('d', () => {
     expect(rollADieSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('should return a number between 5 and 76', () => {
+  it('should return obj with two entry, when using object params with two entries', () => {
     // WHEN
     const rollResult = d({ 20: 2, 20: 3 });
     const validResult =
