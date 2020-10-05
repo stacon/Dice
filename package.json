@@ -4,7 +4,7 @@
   "description": "A functions than can emulate the roll of dice with custom dimensions",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/roll.js",
+    "start": "node dist/index.js",
     "build": "npm-run-all clean:dist transpile",
     "test": "jest",
     "test:coverage": "jest --coverage",
