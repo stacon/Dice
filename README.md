@@ -5,7 +5,7 @@ A simple program that emulates dice rolls with custom number of dimensions and t
 ```
 import Roll, { d, sum } from '@stacon/roll'
 
-// Create a dice set
+// Create a die
 const D20 = d(20);
 
 // Sigle die roll
