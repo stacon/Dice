@@ -86,11 +86,3 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
-
-#src
-src
-
-# config files
-.babelrc
-.prettierrc
-.eslintrc.json
