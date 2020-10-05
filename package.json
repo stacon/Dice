@@ -1,6 +1,6 @@
 {
   "name": "@stacon/roll",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "A functions than can emulate the roll of dice with custom dimensions",
   "main": "dist/index.js",
   "scripts": {
