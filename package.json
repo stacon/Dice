@@ -2,14 +2,14 @@
   "name": "@stacon/roll",
   "version": "0.5.0",
   "description": "A functions than can emulate the roll of dice with custom dimensions",
-  "main": "dist/roll.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/roll.js",
+    "start": "node dist/index.js",
     "build": "npm-run-all clean:dist transpile",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "transpile": "npx babel ./src --out-dir ./dist",
+    "transpile": "npx babel ./src --out-dir ./dist --ignore **/*.test.js",
     "clean:dist": "rimraf ./dist"
   },
   "repository": {
@@ -66,5 +66,8 @@
       "js",
       "node"
     ]
+  },
+  "dependencies": {
+    "@stacon/xswitch": "^1.0.3"
   }
 }

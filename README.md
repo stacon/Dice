@@ -3,13 +3,16 @@ A simple program that emulates dice rolls with custom number of dimensions and t
 
 # Usage
 ```
+import Roll, { d, sum } from '@stacon/roll'
+
+// Create a die
+const D20 = d(20);
+
 // Sigle die roll
-Roll.d(20) // returns a number between 1 - 20 like a d20 roll would.
+console.log(Roll(D20)) // should log a number between 1 - 20 like a d20 roll would.
 
 // Multiple dice roll of the same dimensions
-Roll.d(12, 5) // returns a number between 5 - 60 like 5 d12s roll would.
-
-// Multiple dice roll with dice of different dimensions and numbers
-Roll.d({20: 2, 12: 5}) // return the accumulated roll result from rolling 2*d20 and 5*d12
-Roll.d({12: 2, 10: 5, 8: 1}) // return the accumulated roll result from rolling 2*d12 and 5*d10 and 1*d8
+const resultsArr = Roll.times(5)(D20) // returns an array of numbers between 1 - 20
+console.log(resultsArr) // should log e.g [ 19, 20, 1, 5, 11 ]
+console.log(sum(resultsArr)) // should return the sum of results are e.g. 56
 ```
